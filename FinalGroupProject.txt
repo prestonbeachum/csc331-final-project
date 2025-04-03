@@ -1,0 +1,42 @@
+Group Project Ideas:
+
+
+Git:
+
+Create one main branch (Library) that will act as a main, everyone will branch off of "Library" to do their own work. Once each feature is finished the branch in which the feature is being created will be merged into "Library" which will be used a tester to make sure everything is working together before it gets merged into main
+
+
+Features:
+User Authentication (Admin & Members)  
+Book Catalog Management  
+Borrowing & Returning Books  
+Search & Filter Books  
+Database Integration  
+UI with JavaFX  
+Reports & Fine Calculation
+
+Stack of software in use:
+Frontend: JavaFX 
+Backend: Java 
+Database: SQLite (JDBC for database connection)
+Build Tool: Maven, DB Browswer
+Version Control: GitHub 
+Testing: JUnit
+
+Database:
+1. Use Maven to add the SQLite JDBC dependency so Java can communicate with SQLite
+2. Use DB Browser to create and test your database
+3. Write Java code that connects to the database and performs CRUD operations
+
+
+Project workflow
+1. Set Up Maven Project (Dependencies for JavaFX, SQLite, JUnit)
+2. Design UI with FXML (Main screen, book list, search bar, etc.)
+3. Create Database Schema (Tables for books, members, transactions), DB Browser
+4. Implement Core Features 
+5. Testing & Debugging (JUnit tests for book and user management)
+6. Final Deployment & Documentation
+
+YouTube link explaining good part of the project: 
+
+https://www.youtube.com/watch?v=ictl_c4tVvQ&t=806s
