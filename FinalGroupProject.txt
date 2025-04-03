@@ -27,6 +27,7 @@ Database:
 1. Use Maven to add the SQLite JDBC dependency so Java can communicate with SQLite
 2. Use DB Browser to create and test your database
 3. Write Java code that connects to the database and performs CRUD operations
+4. Relate book ID with Author name/ID (search for author and all books related author appear)
 
 
 Project workflow
