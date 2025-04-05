@@ -39,5 +39,7 @@ Project workflow
 6. Final Deployment & Documentation
 
 YouTube link explaining good part of the project: 
-
 https://www.youtube.com/watch?v=ictl_c4tVvQ&t=806s
+
+YouTube link which explains using maven with javafx:
+https://www.youtube.com/watch?v=0VJG1iqyx_o&list=LL&index=1
