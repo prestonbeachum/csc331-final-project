@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.random;
+import java.util.ArrayList;
 
 public class Library {
 
@@ -90,35 +91,15 @@ public class Library {
         }
     }
 
-    public static void populateUsers(User[] users) {
+    public ArrayList<Book> searchInventory(String info, String filePath) {
+        for (Book b : books) {
+            if (info == b.getTitle() || info == b.getISBN() || info == b.getAuthor() || info == b.getGenre()) {
 
+            }
+        }
     }
 
-    public static void checkingOut(User user, Book book) {
-        if (user.hasOverdue()) {
-            Book[] usersBooks = user.getBooks();
-            for (Book book : usersBooks) {
-                if (book.overdue) {
-                    System.out.printf("The following book is overdue: %s", book.getTitle())
-                }
-            }
-            System.out.println("The user has overdue books and is unable to check out more items until they are returned or cost of items is paid.")
-        }
+    public void displayInventory(String filePath){}
 
-        if (book.isCheckedOut) {
-            System.out.println("This book is already checked out")
-        }
-        String line;
-        try (BufferedReader br = new BufferedReader(new FileReader("people.csv"))) {
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split("\n");
-                for (String value : values) {
-                    System.out.print(value + " ");
-                }
-                System.out.println();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public void removeBook(){}
 }
