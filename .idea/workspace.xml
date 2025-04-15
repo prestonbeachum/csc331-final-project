@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="">
+    <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="library driver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +22,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -73,6 +75,15 @@
       <option name="presentableId" value="Default" />
       <updated>1744143781091</updated>
     </task>
+    <task id="LOCAL-00001" summary="library driver">
+      <option name="closed" value="true" />
+      <created>1744743540754</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744743540754</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -90,5 +101,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/LibraryManagementSystem" />
     </ignored-roots>
+    <MESSAGE value="library driver" />
+    <option name="LAST_COMMIT_MESSAGE" value="library driver" />
   </component>
 </project>
