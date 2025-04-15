@@ -91,7 +91,7 @@ public class Library {
 
 
     private static void updateInventory(){
-        try (FileWriter writer = new FileWriter("inventory.csv")) {
+        try (FileWriter writer = new FileWriter("LibraryManagementSystem/src/main/resources/Inventory.csv")) {
             writer.write("Author, Title, ISBN, Genre\n");
             for (Book b : books) {
                 writer.write(String.format("\"%s\",\"%s\",\"%.2d\",%s\"\n",
@@ -127,7 +127,7 @@ public class Library {
 
 
     public static boolean loadBooksFromCSV() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("LibraryManagementSystem/src/main/resources/Inventory.csv"))) {
             // Clear current book list
             books.clear();
 
@@ -194,12 +194,12 @@ public class Library {
 
 
 
-    public static List<Book> searchByAuthor(String authorQuery) {
+    public static List<Book> searchBooks(String authorQuery) {
         List<Book> results = new ArrayList<>();
         String query = authorQuery.toLowerCase();
 
         for (Book book : books) {
-            if (book.getAuthor().toLowerCase().contains(query)) {
+            if (book.getAuthor().toLowerCase().contains(query) || book.getTitle().toLowerCase().contains(query) || book.getGenre) {
                 results.add(book);
             }
         }
@@ -207,7 +207,10 @@ public class Library {
         return results;
     }
 
+    public void editBook(Book book) {
 
+
+    }
 
 }
 
