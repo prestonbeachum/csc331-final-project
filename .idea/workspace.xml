@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryManagementSystem-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

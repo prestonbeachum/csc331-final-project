@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.library.management.librarymanagementsystem.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="80.0" layoutY="195.0" text="Add New Book">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="262.0" layoutY="101.0" text="Author; Title; ISBN; Category">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ListView layoutX="345.0" layoutY="125.0" prefHeight="535.0" prefWidth="447.0" />
+      <TextField fx:id="authorNameTextField" layoutX="44.0" layoutY="234.0" promptText="Author Name" />
+      <TextField fx:id="categoryTextField" layoutX="44.0" layoutY="379.0" promptText="Category" />
+      <TextField fx:id="isbnTextField" layoutX="44.0" layoutY="339.0" promptText="ISBN" />
+      <TextField fx:id="bookNameTextField" layoutX="44.0" layoutY="284.0" promptText="Book Name" />
+      <TextField fx:id="searchTextField" layoutX="455.0" layoutY="97.0" promptText="Search" />
+      <Button fx:id="editButton" layoutX="629.0" layoutY="98.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="deleteButton" layoutX="698.0" layoutY="98.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="97.0" layoutY="435.0" mnemonicParsing="false" text="Button" />
+   </children>
+</Pane>
