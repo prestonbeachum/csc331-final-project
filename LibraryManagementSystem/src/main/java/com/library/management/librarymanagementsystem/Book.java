@@ -6,37 +6,18 @@ public class Book {
     private String title;
     private String author;
     private String genre;
-    private String bookId;
+    private int book_id;
 
-    public Book(String title, String author, String genre, String bookId) {
+    public Book(String title, String author, String genre, int book_id) {
         this.title = title;
         this.author = author;
         this.genre = genre;
-        this.bookId = bookId
+        this.book_id = book_id;
     }
 
-    public void setCheckedOut(boolean checkedOut) {
-        isCheckedOut = checkedOut;
-        if (checkedOut) {
-            dateCheckedOut = LocalDate.now().toString(); // or use a custom format
-        } else {
-            dateCheckedOut = null;
-        }
-    }
+    public void setBook_id(int book_id) {this.book_id = book_id;}
 
-    public void updateOverdueStatus() {
-        if (isCheckedOut && dateCheckedOut != null) {
-            LocalDate checkoutDate = LocalDate.parse(dateCheckedOut);
-            overdue = ChronoUnit.DAYS.between(checkoutDate, LocalDate.now()) >= 30;
-        } else {
-            overdue = false;
-        }
-    }
-
-    public boolean isOverdue() {
-        updateOverdueStatus(); // ensures it always reflects current status
-        return overdue;
-    }
+    public int getBook_id() {return book_id;}
 
     public void setTitle(String title) {
         this.title = title;
@@ -46,7 +27,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public void setPrice(double price) {
+    //public void setPrice(double price) {
         this.price = price;
     }
 
@@ -58,15 +39,15 @@ public class Book {
         return title;
     }
 
-    public boolean isCheckedOut() {
+    //public boolean isCheckedOut() {
         return isCheckedOut;
     }
 
-    public String getDateCheckedOut() {
+    //public String getDateCheckedOut() {
         return dateCheckedOut;
     }
 
-    public double getPrice() {
+    //public double getPrice() {
         return price;
     }
 
@@ -77,4 +58,16 @@ public class Book {
     public String getGenre() {
         return genre;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
