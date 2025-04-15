@@ -8,7 +8,7 @@ public class Book {
     private String genre;
     private int book_id;
 
-    public Book(String title, String author, String genre, int book_id) {
+    public Book(String author, String title, int book_id, String genre) {
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -27,9 +27,9 @@ public class Book {
         this.genre = genre;
     }
 
-    //public void setPrice(double price) {
-        this.price = price;
-    }
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
 
     public void setAuthor(String author) {
         this.author = author;
@@ -39,17 +39,17 @@ public class Book {
         return title;
     }
 
-    //public boolean isCheckedOut() {
-        return isCheckedOut;
-    }
+//    public boolean isCheckedOut() {
+//        return isCheckedOut;
+//    }
 
-    //public String getDateCheckedOut() {
-        return dateCheckedOut;
-    }
+//    public String getDateCheckedOut() {
+//        return dateCheckedOut;
+//    }
 
-    //public double getPrice() {
-        return price;
-    }
+//    public double getPrice() {
+//        return price;
+//    }
 
     public String getAuthor() {
         return author;
