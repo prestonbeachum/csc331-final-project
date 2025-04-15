@@ -175,29 +175,12 @@ public class Library {
     }
 
 
-
-    public static List<Book> searchByTitle(String titleQuery) {
+    public static List<Book> searchInventory(String query) {
         List<Book> results = new ArrayList<>();
-        String query = titleQuery.toLowerCase();
+        String query = query.toLowerCase();
 
         for (Book book : books) {
-            if (book.getTitle().toLowerCase().contains(query)) {
-                results.add(book);
-            }
-        }
-
-        return results;
-    }
-
-
-
-
-    public static List<Book> searchByAuthor(String authorQuery) {
-        List<Book> results = new ArrayList<>();
-        String query = authorQuery.toLowerCase();
-
-        for (Book book : books) {
-            if (book.getAuthor().toLowerCase().contains(query)) {
+            if (book.getAuthor().toLowerCase().contains(query) || book.getTitle().toLowerCase().contains(query) || book.getISBN().toLowerCase().contains(query) || book.getGenre().toLowerCase().contains(query)) {
                 results.add(book);
             }
         }
