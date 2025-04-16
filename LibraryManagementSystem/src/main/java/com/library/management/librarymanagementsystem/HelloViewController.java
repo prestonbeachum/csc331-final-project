@@ -75,22 +75,6 @@ public class HelloViewController implements Initializable {
             // Create empty CSV file
             csvFile.createNewFile();
 
-            // Add some sample data
-            createSampleData();
-        }
-    }
-
-    private void createSampleData() throws IOException {
-        List<Book> sampleBooks = new ArrayList<>();
-        sampleBooks.add(new Book("J.K. Rowling", "Harry Potter", "123456789", "Fantasy"));
-        sampleBooks.add(new Book("George Orwell", "1984", "987654321", "Dystopian"));
-        sampleBooks.add(new Book("Jane Austen", "Pride and Prejudice", "456123789", "Classic"));
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
-            for (Book book : sampleBooks) {
-                writer.write(book.toCsvString());
-                writer.newLine();
-            }
         }
     }
 
