@@ -1,119 +1,273 @@
 package com.library.management.librarymanagementsystem;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 import java.io.*;
-import java.util.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class HelloViewController {
+public class HelloViewController implements Initializable {
+    @FXML
+    private TextField searchTextField;
 
-    @FXML private TextField authorNameTextField;
-    @FXML private ListView<Book> bookListView;
-    @FXML private TextField bookNameTextField;
-    @FXML private TextField categoryTextField;
-    @FXML private Button deleteButton;
-    @FXML private Button editButton;
-    @FXML private TextField isbnTextField;
-    @FXML private TextField searchTextField;
-    @FXML private Button sumbitButton;
+    @FXML
+    private TextField authorNameTextField;
 
-    private static ObservableList<Book> books = FXCollections.observableArrayList();
-    private static final String CSV_FILE = "inventory.csv";
+    @FXML
+    private TextField bookNameTextField;
 
-    public static void populateInventory() {
-        String[][] bookData = {
-                {"To Kill a Mockingbird", "Harper Lee", "Fiction", "115"},
-                {"1984", "George Orwell", "Dystopian", "116"},
-                {"Pride and Prejudice", "Jane Austen", "Romance", "117"},
-                // Add more...
-        };
+    @FXML
+    private TextField isbnTextField;
 
-        for (String[] data : bookData) {
-            String title = data[0];
-            String author = data[1];
-            String genre = data[2];
-            int book_id = Integer.parseInt(data[3]);
+    @FXML
+    private TextField categoryTextField;
 
-            books.add(new Book(author, title, book_id, genre));
-        }
+    @FXML
+    private Button sumbitButton;
 
-        updateInventory();
-    }
+    @FXML
+    private Button editButton;
 
-    private static boolean updateInventory() {
-        try (FileWriter writer = new FileWriter(CSV_FILE)) {
-            writer.write("Author,Title,ISBN,Genre\n");
-            for (Book b : books) {
-                writer.write(String.format("\"%s\",\"%s\",\"%d\",\"%s\"\n",
-                        b.getAuthor(), b.getTitle(), b.getBook_id(), b.getGenre()));
-            }
-            System.out.println("Inventory written to " + CSV_FILE);
-            return true;
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private ListView<String> bookListView;
+
+    private static final String CSV_FILE_PATH = "src/main/resources/inventory.csv";
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            // Create CSV file if it doesn't exist
+            createCsvIfNotExists();
+
+            // Load books from CSV file
+            loadBooks();
+
+            // Set up event handlers
+            setupEventHandlers();
         } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
-            return false;
+            e.printStackTrace();
         }
     }
 
-    public static boolean addBook(String author, String title, int book_id, String genre) {
-        books.add(new Book(author, title, book_id, genre));
-        return updateInventory();
+    private void createCsvIfNotExists() throws IOException {
+        File csvFile = new File(CSV_FILE_PATH);
+        if (!csvFile.exists()) {
+            // Create directory if it doesn't exist
+            File parentDir = csvFile.getParentFile();
+            if (!parentDir.exists()) {
+                parentDir.mkdirs();
+            }
+
+            // Create empty CSV file
+            csvFile.createNewFile();
+
+            // Add some sample data
+            createSampleData();
+        }
     }
 
-    public static boolean loadBooksFromCSV() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE))) {
-            books.clear();
-            reader.readLine(); // Skip header
+    private void createSampleData() throws IOException {
+        List<Book> sampleBooks = new ArrayList<>();
+        sampleBooks.add(new Book("J.K. Rowling", "Harry Potter", "123456789", "Fantasy"));
+        sampleBooks.add(new Book("George Orwell", "1984", "987654321", "Dystopian"));
+        sampleBooks.add(new Book("Jane Austen", "Pride and Prejudice", "456123789", "Classic"));
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 4) {
-                    String author = parts[0].replace("\"", "");
-                    String title = parts[1].replace("\"", "");
-                    int bookId = Integer.parseInt(parts[2].replace("\"", ""));
-                    String genre = parts[3].replace("\"", "");
-
-                    books.add(new Book(author, title, bookId, genre));
-                }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
+            for (Book book : sampleBooks) {
+                writer.write(book.toCsvString());
+                writer.newLine();
             }
-            return true;
+        }
+    }
+
+    private void setupEventHandlers() {
+        // Search button functionality is handled by method in FXML
+
+        // Submit button for adding new books
+        sumbitButton.setOnAction(event -> {
+            try {
+                addBook();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        // Edit button for editing selected books
+        editButton.setOnAction(event -> {
+            try {
+                editBook();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        // Delete button for removing selected books
+        deleteButton.setOnAction(event -> {
+            try {
+                deleteBook();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        // Search text field functionality
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                searchBook(newValue);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void loadBooks() throws IOException {
+        bookListView.getItems().clear();
+
+        List<String> books = readAllBooksFromCsv();
+        bookListView.getItems().addAll(books);
+    }
+
+    private List<String> readAllBooksFromCsv() throws IOException {
+        try {
+            return Files.readAllLines(Paths.get(CSV_FILE_PATH));
         } catch (IOException e) {
-            System.err.println("Error reading from file: " + e.getMessage());
-            return false;
+            return new ArrayList<>();
         }
     }
 
-    public static boolean removeBook(int book_id) {
-        for (Book book : books) {
-            if (book.getBook_id() == book_id) {
-                books.remove(book);
-                return updateInventory();
+    private void writeBooksToCsv(List<String> books) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
+            for (String book : books) {
+                writer.write(book);
+                writer.newLine();
             }
         }
-        return false;
     }
 
-    public static List<Book> searchInventory(String query) {
-        List<Book> results = new ArrayList<>();
-        query = query.toLowerCase();
+    private void addBook() throws IOException {
+        String author = authorNameTextField.getText().trim();
+        String title = bookNameTextField.getText().trim();
+        String isbn = isbnTextField.getText().trim();
+        String genre = categoryTextField.getText().trim();
 
-        for (Book book : books) {
-            if (book.getAuthor().toLowerCase().contains(query) ||
-                    book.getTitle().toLowerCase().contains(query) ||
-                    String.valueOf(book.getBook_id()).contains(query) ||
-                    book.getGenre().toLowerCase().contains(query)) {
-                results.add(book);
+        if (author.isEmpty() || title.isEmpty() || isbn.isEmpty() || genre.isEmpty()) {
+            return; // Don't add incomplete entries
+        }
+
+        Book newBook = new Book(author, title, isbn, genre);
+
+        // Check if ISBN already exists
+        List<String> allBooks = readAllBooksFromCsv();
+        boolean isbnExists = allBooks.stream()
+                .map(Book::fromCsvString)
+                .anyMatch(b -> b != null && b.getBook_id().equals(isbn));
+
+        if (!isbnExists) {
+            // Add the new book
+            allBooks.add(newBook.toCsvString());
+            writeBooksToCsv(allBooks);
+
+            // Clear input fields
+            authorNameTextField.clear();
+            bookNameTextField.clear();
+            isbnTextField.clear();
+            categoryTextField.clear();
+
+            // Reload the book list
+            loadBooks();
+        } else {
+            System.out.println("Book with ISBN " + isbn + " already exists!");
+        }
+    }
+
+    private void editBook() throws IOException {
+        String selectedBook = bookListView.getSelectionModel().getSelectedItem();
+        if (selectedBook == null) {
+            return;
+        }
+
+        Book bookToEdit = Book.fromCsvString(selectedBook);
+        if (bookToEdit == null) {
+            return;
+        }
+
+        // Set edit form fields
+        authorNameTextField.setText(bookToEdit.getAuthor());
+        bookNameTextField.setText(bookToEdit.getTitle());
+        isbnTextField.setText(bookToEdit.getBook_id());
+        categoryTextField.setText(bookToEdit.getGenre());
+
+        // Delete the old book (will be replaced when user submits the edit)
+        deleteBook();
+    }
+
+    private void deleteBook() throws IOException {
+        String selectedBook = bookListView.getSelectionModel().getSelectedItem();
+        if (selectedBook == null) {
+            return;
+        }
+
+        Book bookToDelete = Book.fromCsvString(selectedBook);
+        if (bookToDelete == null) {
+            return;
+        }
+
+        String isbnToDelete = bookToDelete.getBook_id();
+
+        // Read all books from CSV
+        List<String> allBooks = readAllBooksFromCsv();
+
+        // Filter out the book to delete
+        List<String> updatedBooks = new ArrayList<>();
+        for (String book : allBooks) {
+            Book b = Book.fromCsvString(book);
+            if (b == null || !b.getBook_id().equals(isbnToDelete)) {
+                updatedBooks.add(book);
             }
         }
 
-        return results;
+        // Write updated list back to CSV
+        writeBooksToCsv(updatedBooks);
+
+        // Reload the book list
+        loadBooks();
     }
 
-    public static ObservableList<Book> getBooks() {
-        return books;
+    private void searchBook(String searchText) throws IOException {
+        if (searchText == null || searchText.trim().length() < 3) {
+            loadBooks(); // Show all books if search term is too short
+            return;
+        }
+
+        searchText = searchText.toLowerCase().trim();
+
+        // Load all books first
+        List<String> allBooks = readAllBooksFromCsv();
+        List<String> matchingBooks = new ArrayList<>();
+
+        // Filter books based on search text
+        for (String bookLine : allBooks) {
+            if (bookLine.toLowerCase().contains(searchText)) {
+                matchingBooks.add(bookLine);
+            }
+        }
+
+        // Update the ListView
+        bookListView.getItems().clear();
+        bookListView.getItems().addAll(matchingBooks);
     }
 }

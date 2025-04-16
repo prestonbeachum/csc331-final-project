@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="library driver">
-      <change afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Library.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/hello-viewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="library" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "GUI",
+    "git-widget-placeholder": "EditBookGUI",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/prestonbeachum/csc-331/CSC331FinalProject",
     "project.structure.last.edited": "Modules",
