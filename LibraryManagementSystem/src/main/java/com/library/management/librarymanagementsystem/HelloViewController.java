@@ -43,6 +43,11 @@ public class HelloViewController {
         updateInventory();
     }
 
+    @FXML
+    public void initialize() {
+
+    }
+
     private static boolean updateInventory() {
         try (FileWriter writer = new FileWriter(CSV_FILE)) {
             writer.write("Author,Title,ISBN,Genre\n");
@@ -61,6 +66,14 @@ public class HelloViewController {
     public static boolean addBook(String author, String title, int book_id, String genre) {
         books.add(new Book(author, title, book_id, genre));
         return updateInventory();
+    }
+
+    @FXML
+    public static void handleSubmit(){
+        String title = bookNameTextField.getText();
+        String author = authorNameTextField.getText();
+        String genre = categoryTextField.getText();
+        int bookId = isbnTextField;
     }
 
     public static boolean loadBooksFromCSV() {
@@ -116,4 +129,5 @@ public class HelloViewController {
     public static ObservableList<Book> getBooks() {
         return books;
     }
+
 }
