@@ -32,7 +32,34 @@ public class hello-viewController {
     @FXML
     private Button sumbitButton;
 
+    private static final String CSV_FILE = "src/main/resources/inventory.csv";
+
     private static ObservableList<Book> books = FXCollections.observableArrayList();
+
+    @FXML
+    private void handleSubmit() {
+        String title = bookNameTextField.getText();
+        String author = authorNameTextField.getText();
+        String genre = categoryTextField.getText();
+        int bookId;
+
+        try {
+            bookId = Integer.parseInt(isbnTextField.getText());
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid ISBN. Must be a number.");
+            return;
+        }
+
+        if (title.isEmpty() || author.isEmpty() || genre.isEmpty()) {
+            System.err.println("All fields are required.");
+            return;
+        }
+
+        addBook(author, title, bookId, genre); // From your backend
+        bookListView.setItems(books); // Refresh ListView
+        clearFields();
+    }
+
 
 
     public static void populateInventory() {
