@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="library driver">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagementSystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/EditBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/EditBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/HelloViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/editController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/editController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/edit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -48,8 +64,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "library",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/prestonbeachum/csc-331/CSC331FinalProject",
@@ -61,6 +79,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem" />
+      <recent name="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem" />
       <recent name="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library" />
     </key>
   </component>

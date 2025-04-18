@@ -1,23 +1,12 @@
 Author, Title, ISBN, Genre
-George Orwell;1984;1002;Dystopian
-Jane Austen;Pride and Prejudice;1003;Romance
-F. Scott Fitzgerald;The Great Gatsby;1004;Classic
-J.R.R. Tolkien;The Hobbit;1005;Fantasy
-J.D. Salinger;The Catcher in the Rye;1006;Coming-of-Age
-Herman Melville;Moby Dick;1007;Adventure
-Leo Tolstoy;War and Peace;1008;Historical
-Aldous Huxley;Brave New World;1009;Science Fiction
 J.R.R. Tolkien;The Lord of the Rings;1010;Fantasy
-Dan Brown;The Da Vinci Code;1011;Mystery
-J.K. Rowling;Harry Potter and the Sorcerer's Stone;1012;Fantasy
 Suzanne Collins;The Hunger Games;1013;Dystopian
 Charlotte Brontë;Jane Eyre;1014;Romance
 Fyodor Dostoevsky;Crime and Punishment;1015;Philosophical
-Paulo Coelho;The Alchemist;1016;Adventure
 C.S. Lewis;The Chronicles of Narnia;1017;Fantasy
 Bram Stoker;Dracula;1018;Horror
 Stephen King;The Shining;1019;Horror
-Markus Zusak;The Book Thief;1020;Historical Fiction
+Markus Zusak;The Book Thief;1022321;Historical Fiction
 Mary Shelley;Frankenstein;1021;Gothic
 Victor Hugo;Les Misérables;1022;Historical
 Lois Lowry;The Giver;1023;Dystopian
@@ -34,7 +23,6 @@ Arthur Golden;Memoirs of a Geisha;1033;Historical
 Stieg Larsson;The Girl with the Dragon Tattoo;1034;Crime
 Joseph Heller;Catch-22;1035;Satire
 Ray Bradbury;Fahrenheit 451;1036;Dystopian
-Kurt Vonnegut;Slaughterhouse-Five;1037;Science Fiction
 George R.R. Martin;A Game of Thrones;1038;Fantasy
 Frances Hodgson Burnett;The Secret Garden;1039;Children's
 Margaret Atwood;The Handmaid's Tale;1040;Dystopian
@@ -49,3 +37,9 @@ James Dashner;The Maze Runner;1048;Dystopian
 Frank Herbert;Dune;1049;Science Fiction
 Stephen Chbosky;The Perks of Being a Wallflower;1050;Coming-of-Age
 Harper Lee;To Kill a Mockingbird;1001;Fiction
+J.D. Salinger;The Catcher in the Rye;1006;Coming-of-Age
+Herman Melville;Moby Dick;1007;Adventure
+Kurt Vonnegut;Slaughterhouse-Five;1037;Science Fiction
+Paulo Coelho;The Alchemist;1016;Adventure
+Markus Zusak;The Book Thief;10299;Historical Fiction
+author1;book1;100000;genre1

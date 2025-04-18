@@ -73,7 +73,6 @@ public class EditBook {
         return null;
     }
 
-    // Static method to create and show the dialog
     public static EditBook showDialog(Book bookToEdit) throws IOException {
         FXMLLoader loader = new FXMLLoader(EditBook.class.getResource("edit.fxml"));
         Scene scene = new Scene(loader.load());

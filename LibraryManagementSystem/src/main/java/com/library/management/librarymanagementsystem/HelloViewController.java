@@ -1,17 +1,20 @@
 package com.library.management.librarymanagementsystem;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+
+import javafx.scene.Parent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +37,7 @@ public class HelloViewController implements Initializable {
     private TextField categoryTextField;
 
     @FXML
-    private Button sumbitButton;
+    private Button submitButton;
 
     @FXML
     private Button editButton;
@@ -74,15 +77,12 @@ public class HelloViewController implements Initializable {
 
             // Create empty CSV file
             csvFile.createNewFile();
-
         }
     }
 
     private void setupEventHandlers() {
-        // Search button functionality is handled by method in FXML
-
         // Submit button for adding new books
-        sumbitButton.setOnAction(event -> {
+        submitButton.setOnAction(event -> {
             try {
                 addBook();
             } catch (IOException e) {
@@ -90,12 +90,22 @@ public class HelloViewController implements Initializable {
             }
         });
 
-        // Edit button for editing selected books
+        // Edit button for switching to edit scene
         editButton.setOnAction(event -> {
             try {
+                String selectedBook = bookListView.getSelectionModel().getSelectedItem();
+                if (selectedBook == null) {
+                    showAlert(AlertType.WARNING, "No Selection", "Please select a book to edit.");
+                    return;
+                }
+
+                // Get the selected book data first
                 editBook();
-            } catch (IOException e) {
+                // Then switch to the edit scene
+                handleSwitchScene(event);
+            } catch (Exception e) {
                 e.printStackTrace();
+                showAlert(AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
             }
         });
 
@@ -149,7 +159,9 @@ public class HelloViewController implements Initializable {
         String genre = categoryTextField.getText().trim();
 
         if (author.isEmpty() || title.isEmpty() || isbn.isEmpty() || genre.isEmpty()) {
-            return; // Don't add incomplete entries
+            // Show alert if fields are empty
+            showAlert(AlertType.WARNING, "Incomplete Entry", "Please fill in all fields.");
+            return;
         }
 
         Book newBook = new Book(author, title, isbn, genre);
@@ -174,18 +186,21 @@ public class HelloViewController implements Initializable {
             // Reload the book list
             loadBooks();
         } else {
-            System.out.println("Book with ISBN " + isbn + " already exists!");
+            // Show alert if ISBN exists
+            showAlert(AlertType.ERROR, "Duplicate ISBN", "A book with this ISBN already exists.");
         }
     }
 
     private void editBook() throws IOException {
         String selectedBook = bookListView.getSelectionModel().getSelectedItem();
         if (selectedBook == null) {
+            showAlert(AlertType.WARNING, "No Selection", "Please select a book to edit.");
             return;
         }
 
         Book bookToEdit = Book.fromCsvString(selectedBook);
         if (bookToEdit == null) {
+            showAlert(AlertType.ERROR, "Invalid Book", "The selected book data is invalid.");
             return;
         }
 
@@ -194,19 +209,18 @@ public class HelloViewController implements Initializable {
         bookNameTextField.setText(bookToEdit.getTitle());
         isbnTextField.setText(bookToEdit.getBook_id());
         categoryTextField.setText(bookToEdit.getGenre());
-
-        // Delete the old book (will be replaced when user submits the edit)
-        deleteBook();
     }
 
     private void deleteBook() throws IOException {
         String selectedBook = bookListView.getSelectionModel().getSelectedItem();
         if (selectedBook == null) {
+            showAlert(AlertType.WARNING, "No Selection", "Please select a book to delete.");
             return;
         }
 
         Book bookToDelete = Book.fromCsvString(selectedBook);
         if (bookToDelete == null) {
+            showAlert(AlertType.ERROR, "Invalid Book", "The selected book data is invalid.");
             return;
         }
 
@@ -253,5 +267,50 @@ public class HelloViewController implements Initializable {
         // Update the ListView
         bookListView.getItems().clear();
         bookListView.getItems().addAll(matchingBooks);
+    }
+
+    @FXML
+    public void handleSwitchScene(ActionEvent event) {
+        try {
+            String selectedBook = bookListView.getSelectionModel().getSelectedItem();
+            if (selectedBook == null) {
+                showAlert(AlertType.WARNING, "No Selection", "Please select a book to edit.");
+                return;
+            }
+
+            Book bookToEdit = Book.fromCsvString(selectedBook);
+            if (bookToEdit == null) {
+                showAlert(AlertType.ERROR, "Invalid Book", "The selected book data is invalid.");
+                return;
+            }
+
+            // Load the edit view FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit.fxml"));
+            Parent editRoot = fxmlLoader.load();
+
+            // Get the controller and set the book data
+            editController editController = fxmlLoader.getController();
+            editController.setBookData(bookToEdit);
+
+            // Set up the new scene
+            Scene editScene = new Scene(editRoot);
+            Stage stage = HelloApplication.getPrimaryStage();
+            stage.setScene(editScene);
+            stage.setTitle("Edit Book");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(AlertType.ERROR, "Navigation Error",
+                    "Could not load the edit view: " + e.getMessage());
+        }
+    }
+
+    // Helper method to show alerts
+    private void showAlert(AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
