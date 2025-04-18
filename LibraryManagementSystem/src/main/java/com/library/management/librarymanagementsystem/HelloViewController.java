@@ -1,18 +1,8 @@
 package com.library.management.librarymanagementsystem;
-import javafx.fxml.FXML;
-
-import javafx.scene.Parent;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,6 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+//Driver file for HelloApplication window
 public class HelloViewController implements Initializable {
     @FXML
     private TextField searchTextField;
@@ -50,6 +54,11 @@ public class HelloViewController implements Initializable {
 
     private static final String CSV_FILE_PATH = "src/main/resources/inventory.csv";
 
+    /**
+     * Sets up scene on application startup
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -66,6 +75,10 @@ public class HelloViewController implements Initializable {
         }
     }
 
+    /**
+     * Creates a CSV file to store book data if one does not already exist
+     * @throws IOException
+     */
     private void createCsvIfNotExists() throws IOException {
         File csvFile = new File(CSV_FILE_PATH);
         if (!csvFile.exists()) {
@@ -80,6 +93,9 @@ public class HelloViewController implements Initializable {
         }
     }
 
+    /**
+     * Handles each event that may occur when user interacts with the app
+     */
     private void setupEventHandlers() {
         // Submit button for adding new books
         submitButton.setOnAction(event -> {
@@ -128,6 +144,10 @@ public class HelloViewController implements Initializable {
         });
     }
 
+    /**
+     * Shows all books in the libraries inventory system.
+     * @throws IOException
+     */
     private void loadBooks() throws IOException {
         bookListView.getItems().clear();
 
@@ -135,6 +155,11 @@ public class HelloViewController implements Initializable {
         bookListView.getItems().addAll(books);
     }
 
+    /**
+     * Reads all lines from csv and returns them.
+     * @return a list of items from csv file or a blank ArrayList if an exception is found
+     * @throws IOException
+     */
     private List<String> readAllBooksFromCsv() throws IOException {
         try {
             return Files.readAllLines(Paths.get(CSV_FILE_PATH));
@@ -143,6 +168,11 @@ public class HelloViewController implements Initializable {
         }
     }
 
+    /**
+     * Writes list of books to a csv file
+     * @param books list of all books in libraries inventory
+     * @throws IOException
+     */
     private void writeBooksToCsv(List<String> books) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
             for (String book : books) {
@@ -152,6 +182,12 @@ public class HelloViewController implements Initializable {
         }
     }
 
+    /**
+     * Creates a new book object and uses fields entered by to identify the books parameters. When
+     * the book has been created with user information and the book is unique it is added to the librarys
+     * inventory.
+     * @throws IOException
+     */
     private void addBook() throws IOException {
         String author = authorNameTextField.getText().trim();
         String title = bookNameTextField.getText().trim();
@@ -190,7 +226,14 @@ public class HelloViewController implements Initializable {
             showAlert(AlertType.ERROR, "Duplicate ISBN", "A book with this ISBN already exists.");
         }
     }
-
+    
+    /**
+     * Checks if user has a book selected. If the selection is valid, the program will allow the user to
+     * make adjustments to one or more of the books fields or cancel if they decide not to make any changes.
+     * If the selection is invalid then a message will be displayed to explain to the user why the edit page
+     * did not appear.
+     * @throws IOException
+     */
     private void editBook() throws IOException {
         String selectedBook = bookListView.getSelectionModel().getSelectedItem();
         if (selectedBook == null) {
@@ -211,6 +254,12 @@ public class HelloViewController implements Initializable {
         categoryTextField.setText(bookToEdit.getGenre());
     }
 
+    /**
+     * Method will check if the user has made a selection. If the selection is valid the method will create a new list
+     * of all books that do not match the users selection and overwrite the csv with the new list of books. If the selection
+     * is invalid a message will be displayed to explain to the user why nothing happened when the delete button was pressed.
+     * @throws IOException
+     */
     private void deleteBook() throws IOException {
         String selectedBook = bookListView.getSelectionModel().getSelectedItem();
         if (selectedBook == null) {
@@ -245,6 +294,13 @@ public class HelloViewController implements Initializable {
         loadBooks();
     }
 
+    /**
+     * Each time a user enters something in the search bar the method will check if any of the books
+     * contain the search text. If a book matches the search text then it will be added to the list
+     * of matching books. That list will then be viewable to the user.
+     * @param searchText text entered into search bar
+     * @throws IOException
+     */
     private void searchBook(String searchText) throws IOException {
         if (searchText == null || searchText.trim().length() < 3) {
             loadBooks(); // Show all books if search term is too short
@@ -269,6 +325,12 @@ public class HelloViewController implements Initializable {
         bookListView.getItems().addAll(matchingBooks);
     }
 
+    /**
+     * Switches the window to the book edit screen when the edit button is clicked if a selection has been made.
+     * If there is no selection or the selection is invalid a message will appear explaining why nothing happened
+     * when the button was pressed.
+     * @param event alerts the program that the edit button was pressed
+     */
     @FXML
     public void handleSwitchScene(ActionEvent event) {
         try {
@@ -305,7 +367,12 @@ public class HelloViewController implements Initializable {
         }
     }
 
-    // Helper method to show alerts
+    /**
+     * Method displays an alert
+     * @param alertType defines what type of alert the user will see
+     * @param title title of the alert
+     * @param message message displayed to user
+     */
     private void showAlert(AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
