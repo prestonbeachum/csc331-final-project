@@ -23,6 +23,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 //Driver file for HelloApplication window
 public class HelloViewController implements Initializable {
     @FXML
@@ -64,10 +65,8 @@ public class HelloViewController implements Initializable {
         try {
             // Create CSV file if it doesn't exist
             createCsvIfNotExists();
-
             // Load books from CSV file
             loadBooks();
-
             // Set up event handlers
             setupEventHandlers();
         } catch (IOException e) {
