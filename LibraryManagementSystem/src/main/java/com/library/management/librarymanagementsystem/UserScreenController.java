@@ -37,9 +37,9 @@ public class UserScreenController {
     @FXML
     private TextField searchTextField;
 
-    public User currentUser;
+    private User currentUser;
 
-    public ArrayList<User> allUsers;
+    private ArrayList<User> allUsers;
 
     private static final String CSV_FILE_PATH_BOOKS = "src/main/resources/inventory.csv";
     private static final String CSV_FILE_PATH_USERS = "src/main/resources/users.csv";
@@ -141,9 +141,16 @@ public class UserScreenController {
     }
     
     private void checkout() {
-        String selectedBook = bookListView.getSelectionModel().getSelectedItem();
-        this.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
-        writeAllUsers();
+        try {
+            String selectedBook = bookListView.getSelectionModel().getSelectedItem();
+            this.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
+            deleteBook();
+            writeAllUsers();
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+            showAlert(AlertType.ERROR, "Error", "Checkout Error " + e.getMessage());
+        }
     }
 
     /**
@@ -275,15 +282,13 @@ public class UserScreenController {
 
     private void loadReturnScene() {
         try {
-            ArrayList<User> all = getUsers();
-            User current = all.get(all.indexOf(currentUser));
            // Load the edit view FXML
            FXMLLoader loader = new FXMLLoader(getClass().getResource("return-book.fxml"));
            Parent root = loader.load();
 
            // Get the controller and set the book data
            ReturnBookController returnBookController = loader.getController();
-           returnBookController.setUserVariables(current, all);
+        returnBookController.setUserVariables(currentUser, allUsers);
 
            // Set up the new scene
            Scene returnScene = new Scene(root);

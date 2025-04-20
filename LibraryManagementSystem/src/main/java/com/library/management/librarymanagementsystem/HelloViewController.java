@@ -51,6 +51,9 @@ public class HelloViewController implements Initializable {
     private Button deleteButton;
 
     @FXML
+    private Button logoutButton;
+
+    @FXML
     private ListView<String> bookListView;
 
     private static final String CSV_FILE_PATH = "src/main/resources/inventory.csv";
@@ -129,6 +132,15 @@ public class HelloViewController implements Initializable {
             try {
                 deleteBook();
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        logoutButton.setOnAction(event -> {
+            try {
+                logout();
+            } 
+            catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -365,6 +377,19 @@ public class HelloViewController implements Initializable {
                     "Could not load the edit view: " + e.getMessage());
         }
     }
+
+    private void logout() throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("login-screen.fxml"));
+            Parent root = loader.load();
+
+           // Set up the new scene
+           Scene userScene = new Scene(root);
+           Stage stage = HelloApplication.getPrimaryStage();
+           stage.setScene(userScene);
+           stage.setTitle("Library");
+           stage.show();
+    }
+
 
     /**
      * Method displays an alert
