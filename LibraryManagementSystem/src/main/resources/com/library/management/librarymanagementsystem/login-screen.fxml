@@ -35,5 +35,10 @@
             <Insets top="8.0" />
          </VBox.margin>
       </Button>
+      <Label fx:id="loginLabel" text="Invalid Login Credentials" textFill="#f80f0f">
+         <VBox.margin>
+            <Insets top="8.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>
