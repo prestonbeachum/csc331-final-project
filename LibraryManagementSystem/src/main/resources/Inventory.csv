@@ -1,11 +1,6 @@
 Author, Title, ISBN, Genre
-J.R.R. Tolkien;The Lord of the Rings;1010;Fantasy
-Suzanne Collins;The Hunger Games;1013;Dystopian
-Charlotte Brontë;Jane Eyre;1014;Romance
 Fyodor Dostoevsky;Crime and Punishment;1015;Philosophical
-C.S. Lewis;The Chronicles of Narnia;1017;Fantasy
 Bram Stoker;Dracula;1018;Horror
-Stephen King;The Shining;1019;Horror
 Markus Zusak;The Book Thief;1022321;Historical Fiction
 Mary Shelley;Frankenstein;1021;Gothic
 Victor Hugo;Les Misérables;1022;Historical
@@ -42,5 +37,5 @@ Herman Melville;Moby Dick;1007;Adventure
 Kurt Vonnegut;Slaughterhouse-Five;1037;Science Fiction
 Paulo Coelho;The Alchemist;1016;Adventure
 Markus Zusak;The Book Thief;10299;Historical Fiction
-author1;book1;100000;genre1
-
+J.R.R. Tolkien;The Lord of the Rings;1010;Fantasy
+Charlotte Brontë;Jane Eyre;1014;Romance
