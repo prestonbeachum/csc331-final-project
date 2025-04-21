@@ -151,9 +151,9 @@ public class UserScreenController {
         try {
             String selectedBook = bookListView.getSelectionModel().getSelectedItem();
             if (selectedBook!= null) {
-            UserScreenController.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
-            deleteBook();
-            writeAllUsers();
+                UserScreenController.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
+                deleteBook();
+                writeAllUsers();
             }
         }
         catch(IOException e) {

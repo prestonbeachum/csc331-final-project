@@ -83,9 +83,14 @@ public class User {
         StringBuilder sb = new StringBuilder();
         sb.append(this.username + ";" + this.password + ";" + this.admin);
 
-        if(this.books.size() > 0) {
+        if(!this.books.isEmpty()) {
             for(int i = 0; i < this.books.size(); i++) {
-                sb.append(";" + this.books.get(i).getAuthor() + "," + this.books.get(i).getTitle() + "," + this.books.get(i).getBook_id() + "," + this.books.get(i).getGenre());
+                if(i == 0) {
+                    sb.append(";" + this.books.get(i).getAuthor() + "," + this.books.get(i).getTitle() + "," + this.books.get(i).getBook_id() + "," + this.books.get(i).getGenre());
+                }
+                else {
+                    sb.append("," + this.books.get(i).getAuthor() + "," + this.books.get(i).getTitle() + "," + this.books.get(i).getBook_id() + "," + this.books.get(i).getGenre());
+                }
             }
         }
         String csvString = sb.toString();
