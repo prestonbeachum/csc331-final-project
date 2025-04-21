@@ -80,9 +80,29 @@ public class SignUpScreenController {
      * switches scene back to login
      */
     private void createAccount() throws IOException{
-        allUsers.add(new User(usernameTextField.getText().toLowerCase(), passwordTextField.getText(), isAdmin.isSelected()));
-        writeAllUsers();
-        switchToLogin();
+        User userToAdd = new User(usernameTextField.getText().toLowerCase(), passwordTextField.getText(), isAdmin.isSelected());
+        if (!checkForMatch(userToAdd)) {
+            allUsers.add(userToAdd);
+            writeAllUsers();
+            switchToLogin();
+        }
+        else {
+            showAlert(AlertType.INFORMATION, "Account Creation Failed", "Username is taken. Please try again");
+        }
+    }
+
+    /**
+     * Checks if username exists already. Returns true if match is found, otherwise false
+     * @param userToAdd User object to be created
+     * @return
+     */
+    private boolean checkForMatch(User userToAdd) {
+        for(User user : allUsers) {
+            if (user.getUsername().equals(userToAdd.getUsername())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
