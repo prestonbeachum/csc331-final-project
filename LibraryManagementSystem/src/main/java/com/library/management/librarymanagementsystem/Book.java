@@ -5,6 +5,7 @@ public class Book {
     private String title;
     private String book_id; // Using String for ISBN/book ID
     private String genre;  // Using genre as the category field
+    
 
     // Default constructor required by JavaFX
     public Book() {
@@ -71,5 +72,14 @@ public class Book {
             return new Book(parts[0], parts[1], parts[2], parts[3]);
         }
         return null;
+    }
+
+    @Override
+    public boolean equals(Object book) {
+        if (book.getClass() == getClass()) {
+            Book bookCompare = (Book) book;
+            return this.author.equals(bookCompare.getAuthor())&&this.title.equals(bookCompare.getTitle())&&this.book_id.equals(bookCompare.getBook_id()) && this.genre.equals(bookCompare.getGenre());
+        }
+        return false;
     }
 }

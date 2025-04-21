@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 public class UserScreenController {
 
     @FXML
@@ -37,17 +38,15 @@ public class UserScreenController {
     @FXML
     private TextField searchTextField;
 
-    private User currentUser;
+    private static User currentUser;
 
-    private ArrayList<User> allUsers;
+    private static ArrayList<User> allUsers;
 
     private static final String CSV_FILE_PATH_BOOKS = "src/main/resources/inventory.csv";
     private static final String CSV_FILE_PATH_USERS = "src/main/resources/users.csv";
 
     /**
      * Sets up scene on application startup
-     * @param url
-     * @param resourceBundle
      */
     @FXML
     public void initialize() {
@@ -60,11 +59,10 @@ public class UserScreenController {
 
             // Set up event handlers
             setupEventHandlers();
-
-            // Sets user variables
-
+            
         } catch (IOException e) {
             e.printStackTrace();
+            showAlert(AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
         }
     }
 
@@ -86,9 +84,14 @@ public class UserScreenController {
         }
     }
 
-    public void setUserVariables(User currentUser, ArrayList<User> allUsers) {
-        this.currentUser = currentUser;
-        this.allUsers = allUsers;
+    /**
+     * Sets current user and allUser variables
+     * @param currentUser current user accessing library
+     * @param allUsers all users in library.
+     */
+    static void setUserVariables(User currentUser, ArrayList<User> allUsers) {
+        UserScreenController.currentUser = currentUser;
+        UserScreenController.allUsers = allUsers;
     }
     /**
      * Handles each event that may occur when user interacts with the app
@@ -140,12 +143,18 @@ public class UserScreenController {
         }
     }
     
+    /**
+     * Retrieves selected book from user, adds book to users inventory, removes book from library inventory
+     * and writes new data to csv.
+     */
     private void checkout() {
         try {
             String selectedBook = bookListView.getSelectionModel().getSelectedItem();
-            this.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
+            if (selectedBook!= null) {
+            UserScreenController.currentUser.getBooks().add(Book.fromCsvString(selectedBook));
             deleteBook();
             writeAllUsers();
+            }
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -280,15 +289,17 @@ public class UserScreenController {
         return null;
     }
 
+    /**
+     * Loads up return book scene and sets its
+     */
     private void loadReturnScene() {
         try {
-           // Load the edit view FXML
+           //Sets controllers instance variables
+           ReturnBookController.setUserVariables(UserScreenController.currentUser, UserScreenController.allUsers);
+
+           //Loads return-book.fxml
            FXMLLoader loader = new FXMLLoader(getClass().getResource("return-book.fxml"));
            Parent root = loader.load();
-
-           // Get the controller and set the book data
-           ReturnBookController returnBookController = loader.getController();
-        returnBookController.setUserVariables(currentUser, allUsers);
 
            // Set up the new scene
            Scene returnScene = new Scene(root);
@@ -303,10 +314,13 @@ public class UserScreenController {
         }
     }
 
+    /**
+     * Sets user info to null and changes scene to login
+     */
     private void logout() {
         try {
-            currentUser = null;
-            allUsers = null;
+            UserScreenController.currentUser = null;
+            UserScreenController.allUsers = null;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login-screen.fxml"));
             Parent root = loader.load();
 

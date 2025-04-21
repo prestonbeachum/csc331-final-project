@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,9 +28,9 @@ public class ReturnBookController {
     @FXML
     private Button submitButton;
 
-    private User currentUser;
+    private static User currentUser;
 
-    private ArrayList<User> allUsers;
+    private static ArrayList<User> allUsers;
 
     private static final String CSV_FILE_PATH_BOOKS = "src/main/resources/inventory.csv";
     private static final String CSV_FILE_PATH_USERS = "src/main/resources/users.csv";
@@ -56,17 +55,25 @@ public class ReturnBookController {
         }
     }
 
-    public void setUserVariables(User currentUser, ArrayList<User> allUsers) {
-        this.currentUser = currentUser;
-        this.allUsers = allUsers;
+    /**
+     * Sets controllers currentUser and allUsers instance variables
+     * @param currentUser user currently accessing library
+     * @param allUsers all users in library
+     */
+    public static void setUserVariables(User currentUser, ArrayList<User> allUsers) {
+        ReturnBookController.currentUser = currentUser;
+        ReturnBookController.allUsers = allUsers;
     }
 
+    /**
+     * Defines how to handle all events in scene
+     */
     private void setupEventHandlers() {
         // Submit button for adding new books
         submitButton.setOnAction(event -> {
             try {
                 returnBook();
-                returnToUserScene(event);
+                returnToUserScene();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -75,13 +82,17 @@ public class ReturnBookController {
         // Edit button for switching to edit scene
         cancelButton.setOnAction(event -> {
             try {
-                returnToUserScene(event);
+                returnToUserScene();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
 
+    /**
+     * Retrieves selected book from user, removes it from users inventory, adds it to library inventory
+     * and writes new data to csv file.
+     */
     private void returnBook() {
         String selectedBook = bookListView.getSelectionModel().getSelectedItem();
         currentUser.getBooks().remove(Book.fromCsvString(selectedBook));
@@ -89,6 +100,11 @@ public class ReturnBookController {
         writeAllUsers();
     }
     
+    /**
+     * Retrieves all books in libraries inventory from csv
+     * @return a list of all books in librarys inventory
+     * @throws IOException
+     */
     private List<String> readAllBooksFromCsv() throws IOException {
         try {
             return Files.readAllLines(Paths.get(CSV_FILE_PATH_BOOKS));
@@ -98,6 +114,9 @@ public class ReturnBookController {
         }
     }
 
+    /**
+     * Adds selected book to libraries inventory and writes new data to csv
+     */
     private void addBook() {
         try {
             List<String> allBooks = readAllBooksFromCsv();
@@ -112,7 +131,7 @@ public class ReturnBookController {
 
     }
 
-        /**
+    /**
      * Writes list of books to a csv file
      * @param books list of all books in libraries inventory
      * @throws IOException
@@ -120,12 +139,16 @@ public class ReturnBookController {
     private void writeBooksToCsv(List<String> books) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_BOOKS))) {
             for (String book : books) {
+                book = book.trim();
                 writer.write(book);
                 writer.newLine();
             }
         }
     }
 
+    /**
+     * Writes all users to libraries inventory
+     */
     private void writeAllUsers() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_USERS))) {
             for (int i = 0; i < allUsers.size(); i++) {
@@ -139,6 +162,11 @@ public class ReturnBookController {
         }
     }
 
+    /**
+     * Loads list of books in inventory to bookListView so that it is visible
+     * to user
+     * @throws IOException
+     */
     private void loadBooks() throws IOException {
         bookListView.getItems().clear();
         List<String> books = new ArrayList<>();
@@ -148,7 +176,11 @@ public class ReturnBookController {
         bookListView.getItems().addAll(books);
     }
 
-    private void returnToUserScene(ActionEvent event) {
+    /**
+     * Handles switch scene back to main screen.
+     * @param event
+     */
+    private void returnToUserScene() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("user-screen.fxml"));
             Parent root = loader.load();

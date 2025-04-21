@@ -9,7 +9,7 @@ public class User {
     private ArrayList<Book> books = new ArrayList<>();
 
     /**
-     * Constructor for User class
+     * Constructor for User class if books is empty
      * @param username username tied with user
      * @param password password tied with user
      * @param admin is permmisions for user admin
@@ -21,7 +21,7 @@ public class User {
     }
 
     /**
-     * Constructor for User class
+     * Constructor for User class if user has books
      * @param username username tied with user
      * @param password password tied with user
      * @param admin is permmisions for user admin
@@ -46,7 +46,12 @@ public class User {
     public void setPassword(String newPassword) {this.password = newPassword;}
     public void setAdmin(boolean newAdmin) {this.admin = newAdmin;}
     public void setBooks(ArrayList<Book> newBooks) {this.books = newBooks;}
-
+    
+    /**
+     * Converts a csv String to User object
+     * @param csvLine line from csv file
+     * @return User object created from csvLine
+     */
     public static User fromCSVString(String csvLine) {
         if (csvLine == null || csvLine.trim().isEmpty()) {
             return null;
@@ -66,10 +71,14 @@ public class User {
             return new User(username, password, admin, books);
         }
         else {
-            return new User(username, password, admin);
+            return new User(username, password, admin); //If user has no books a different constructor is called
         }
     }
 
+    /**
+     * Converts User object to CSV String
+     * @return csvString of User object
+     */
     public String toCSVString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.username + ";" + this.password + ";" + this.admin);

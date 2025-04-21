@@ -27,5 +27,5 @@
     <Button fx:id="editButton" layoutX="659.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleSwitchScene" text="Edit" />
     <Button fx:id="deleteButton" layoutX="728.0" layoutY="88.0" mnemonicParsing="false" text="Delete" />
     <Button fx:id="submitButton" layoutX="97.0" layoutY="435.0" mnemonicParsing="false" text="Submit" />
-   <Button fx:id="logoutButton" layoutX="61.0" layoutY="627.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Logout" />
+    <Button fx:id="logoutButton" layoutX="61.0" layoutY="627.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Logout" />
 </Pane>

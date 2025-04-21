@@ -24,7 +24,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-//Driver file for HelloApplication window
 public class HelloViewController implements Initializable {
     @FXML
     private TextField searchTextField;
@@ -378,6 +377,10 @@ public class HelloViewController implements Initializable {
         }
     }
 
+    /**
+     * Handles switch scene back to login-screen
+     * @throws IOException
+     */
     private void logout() throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login-screen.fxml"));
             Parent root = loader.load();
