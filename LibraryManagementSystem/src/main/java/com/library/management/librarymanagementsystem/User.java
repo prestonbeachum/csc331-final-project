@@ -1,6 +1,14 @@
 package com.library.management.librarymanagementsystem;
 import java.util.ArrayList;
 
+/**
+ * User.java
+ * 
+ * Defines a User object to be used for storing user information in Library Management System.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class User {
     
     private String username;

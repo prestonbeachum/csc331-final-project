@@ -1,5 +1,13 @@
 package com.library.management.librarymanagementsystem;
 
+/**
+ * Book.java
+ * 
+ * Defines a Book object to be used for storing book information in Library Management System.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class Book {
     private String author;
     private String title;
@@ -7,7 +15,9 @@ public class Book {
     private String genre;  // Using genre as the category field
     
 
-    // Default constructor required by JavaFX
+    /**
+     * Default constructor for book object
+     */
     public Book() {
         this.author = "";
         this.title = "";
@@ -15,7 +25,13 @@ public class Book {
         this.genre = "";
     }
 
-    // Parameterized constructor
+    /**
+     * Constructor for book object
+     * @param author author of the book
+     * @param title title of the book
+     * @param book_id unique book id
+     * @param genre genre of the book
+     */
     public Book(String author, String title, String book_id, String genre) {
         this.author = author;
         this.title = title;
@@ -61,7 +77,11 @@ public class Book {
         return author + ";" + title + ";" + book_id + ";" + genre;
     }
 
-    // Create a Book object from CSV string
+    /**
+     * Creates a book object from a csv String
+     * @param csvLine String value read from csv file
+     * @return book object
+     */
     public static Book fromCsvString(String csvLine) {
         if (csvLine == null || csvLine.trim().isEmpty()) {
             return null;
@@ -74,6 +94,9 @@ public class Book {
         return null;
     }
 
+    /**
+     * Defines how to compare two book objects
+     */
     @Override
     public boolean equals(Object book) {
         if (book.getClass() == getClass()) {

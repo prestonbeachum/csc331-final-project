@@ -21,6 +21,14 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * UserScreenController.java
+ * 
+ * Controller file for the user-screen.fxml. Provides functionality to the control elements within the GUI.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class UserScreenController {
 
     @FXML

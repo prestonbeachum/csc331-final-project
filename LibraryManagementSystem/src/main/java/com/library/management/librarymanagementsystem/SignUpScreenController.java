@@ -16,6 +16,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * SignUpScreenController.java
+ * 
+ * Controller file for the sign-up-screen.fxml. Provides functionality to the control elements within the GUI.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class SignUpScreenController {
 
     @FXML

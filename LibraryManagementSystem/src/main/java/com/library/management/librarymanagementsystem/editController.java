@@ -21,6 +21,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * editController.java
+ * 
+ * Controller file for the edit.fxml. Provides functionality to the control elements within the GUI.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class editController implements Initializable {
 
     @FXML
@@ -45,6 +53,11 @@ public class editController implements Initializable {
         originalISBN = editISBNTextField.getText();
     }
 
+    /**
+     * Handles submission of book edits. Gets values from text field, checks all values are valid,
+     * checks that book is unique, and returns editted book
+     * @param event
+     */
     @FXML
     public void submitEdit(ActionEvent event) {
         try {
@@ -120,6 +133,11 @@ public class editController implements Initializable {
         }
     }
 
+    /**
+     * When cancel button is pressed the program will call the navigate to main view method to return
+     * to the main screen
+     * @param event
+     */
     @FXML
     public void cancelEdit(ActionEvent event) {
         try {
@@ -131,6 +149,11 @@ public class editController implements Initializable {
         }
     }
 
+
+    /**
+     * Loads the hello-view scene to navigate to main menu
+     * @throws IOException
+     */
     private void navigateToMainView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
@@ -152,6 +175,12 @@ public class editController implements Initializable {
         }
     }
 
+    /**
+     * Opens csv file at designated path and reads all lines from path returning]
+     * an list of each line read
+     * @return List of all lines in file
+     * @throws IOException
+     */
     private List<String> readAllBooksFromCsv() throws IOException {
         try {
             return Files.readAllLines(Paths.get(CSV_FILE_PATH));
@@ -160,6 +189,11 @@ public class editController implements Initializable {
         }
     }
 
+    /**
+     * Opens csv file at designated path and writes all elements from a list to it
+     * @param books list of each string representation of book objects.
+     * @throws IOException
+     */
     private void writeBooksToCsv(List<String> books) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
             for (String book : books) {
@@ -169,6 +203,12 @@ public class editController implements Initializable {
         }
     }
 
+    /**
+     * Method displays an alert
+     * @param alertType defines what type of alert the user will see
+     * @param title title of the alert
+     * @param message message displayed to user
+     */
     private void showAlert(AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

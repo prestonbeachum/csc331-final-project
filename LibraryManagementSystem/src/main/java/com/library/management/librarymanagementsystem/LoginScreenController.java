@@ -16,7 +16,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
+/**
+ * LoginScreenController.java
+ * 
+ * Controller file for the login-screen.fxml. Provides functionality to the control elements within the GUI.
+ * 
+ * @author Dimitri Montgomery, Hayes Meekins, Preston Beachum, Tyler Gregory, Daniel Irwin
+ * Date: 4/22/2025
+ */
 public class LoginScreenController{
 
     @FXML
