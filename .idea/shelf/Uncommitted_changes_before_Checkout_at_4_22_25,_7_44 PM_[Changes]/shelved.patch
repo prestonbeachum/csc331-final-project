@@ -1,0 +1,54 @@
+Index: LibraryManagementSystem/src/main/resources/Inventory.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Author, Title, ISBN, Genre\nFyodor Dostoevsky;Crime and Punishment;1015;Philosophical\nBram Stoker;Dracula;1018;Horror\nMarkus Zusak;The Book Thief;1022321;Historical Fiction\nMary Shelley;Frankenstein;1021;Gothic\nVictor Hugo;Les Misérables;1022;Historical\nLois Lowry;The Giver;1023;Dystopian\nGeorge Orwell;Animal Farm;1024;Satire\nEmily Brontë;Wuthering Heights;1025;Gothic\nKhaled Hosseini;The Kite Runner;1026;Drama\nCharles Dickens;A Tale of Two Cities;1027;Historical\nOscar Wilde;The Picture of Dorian Gray;1028;Philosophical\nCharles Dickens;Great Expectations;1029;Classic\nJohn Green;The Fault in Our Stars;1030;Young Adult\nYann Martel;Life of Pi;1031;Adventure\nGillian Flynn;Gone Girl;1032;Thriller\nArthur Golden;Memoirs of a Geisha;1033;Historical\nStieg Larsson;The Girl with the Dragon Tattoo;1034;Crime\nJoseph Heller;Catch-22;1035;Satire\nRay Bradbury;Fahrenheit 451;1036;Dystopian\nGeorge R.R. Martin;A Game of Thrones;1038;Fantasy\nFrances Hodgson Burnett;The Secret Garden;1039;Children's\nMargaret Atwood;The Handmaid's Tale;1040;Dystopian\nCormac McCarthy;The Road;1041;Post-apocalyptic\nMadeleine L'Engle;A Wrinkle in Time;1042;Science Fantasy\nAudrey Niffenegger;The Time Traveler’s Wife;1043;Romance\nAlice Walker;The Color Purple;1044;Historical Fiction\nSylvia Plath;The Bell Jar;1045;Psychological Fiction\nS.E. Hinton;The Outsiders;1046;Young Adult\nToni Morrison;Beloved;1047;Historical Fiction\nJames Dashner;The Maze Runner;1048;Dystopian\nFrank Herbert;Dune;1049;Science Fiction\nStephen Chbosky;The Perks of Being a Wallflower;1050;Coming-of-Age\nHarper Lee;To Kill a Mockingbird;1001;Fiction\nJ.D. Salinger;The Catcher in the Rye;1006;Coming-of-Age\nHerman Melville;Moby Dick;1007;Adventure\nKurt Vonnegut;Slaughterhouse-Five;1037;Science Fiction\nPaulo Coelho;The Alchemist;1016;Adventure\nMarkus Zusak;The Book Thief;10299;Historical Fiction\nJ.R.R. Tolkien;The Lord of the Rings;1010;Fantasy\nCharlotte Brontë;Jane Eyre;1014;Romance\n
+===================================================================
+diff --git a/LibraryManagementSystem/src/main/resources/Inventory.csv b/LibraryManagementSystem/src/main/resources/Inventory.csv
+--- a/LibraryManagementSystem/src/main/resources/Inventory.csv	(revision 7b00fe0565e5dbd6132cbcf92135b93cc889fea6)
++++ b/LibraryManagementSystem/src/main/resources/Inventory.csv	(date 1745341310345)
+@@ -1,8 +1,6 @@
+ Author, Title, ISBN, Genre
+ Fyodor Dostoevsky;Crime and Punishment;1015;Philosophical
+-Bram Stoker;Dracula;1018;Horror
+ Markus Zusak;The Book Thief;1022321;Historical Fiction
+-Mary Shelley;Frankenstein;1021;Gothic
+ Victor Hugo;Les Misérables;1022;Historical
+ Lois Lowry;The Giver;1023;Dystopian
+ George Orwell;Animal Farm;1024;Satire
+@@ -11,7 +9,6 @@
+ Charles Dickens;A Tale of Two Cities;1027;Historical
+ Oscar Wilde;The Picture of Dorian Gray;1028;Philosophical
+ Charles Dickens;Great Expectations;1029;Classic
+-John Green;The Fault in Our Stars;1030;Young Adult
+ Yann Martel;Life of Pi;1031;Adventure
+ Gillian Flynn;Gone Girl;1032;Thriller
+ Arthur Golden;Memoirs of a Geisha;1033;Historical
+@@ -22,7 +19,6 @@
+ Frances Hodgson Burnett;The Secret Garden;1039;Children's
+ Margaret Atwood;The Handmaid's Tale;1040;Dystopian
+ Cormac McCarthy;The Road;1041;Post-apocalyptic
+-Madeleine L'Engle;A Wrinkle in Time;1042;Science Fantasy
+ Audrey Niffenegger;The Time Traveler’s Wife;1043;Romance
+ Alice Walker;The Color Purple;1044;Historical Fiction
+ Sylvia Plath;The Bell Jar;1045;Psychological Fiction
+@@ -39,3 +35,7 @@
+ Markus Zusak;The Book Thief;10299;Historical Fiction
+ J.R.R. Tolkien;The Lord of the Rings;1010;Fantasy
+ Charlotte Brontë;Jane Eyre;1014;Romance
++Bram Stoker;Dracula;1018;Horror
++Mary Shelley;Frankenstein;1021;Mystery
++Madeleine L'Engle;A Wrinkle in Time;1042;Science Fantasy
++John Green;The Fault in Our Stars;1030;Young Adult
+Index: LibraryManagementSystem/src/main/resources/users.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>user;password;false\nadmin;password1;true\n
+===================================================================
+diff --git a/LibraryManagementSystem/src/main/resources/users.csv b/LibraryManagementSystem/src/main/resources/users.csv
+--- a/LibraryManagementSystem/src/main/resources/users.csv	(revision 7b00fe0565e5dbd6132cbcf92135b93cc889fea6)
++++ b/LibraryManagementSystem/src/main/resources/users.csv	(date 1745364274958)
+@@ -1,2 +1,4 @@
+ user;password;false
+ admin;password1;true
++pdb;9085;true
++pdb1;9085;false

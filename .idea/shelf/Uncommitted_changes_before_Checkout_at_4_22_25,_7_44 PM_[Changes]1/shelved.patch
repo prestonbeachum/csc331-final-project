@@ -1,0 +1,65 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"e9081167-011d-4141-8f0f-7d8a1b0ee869\" name=\"Changes\" comment=\"library driver\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"library\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;dimitrimont&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/Preston-7/CSC331FinalProject.git&quot;,\n    &quot;accountId&quot;: &quot;07c44bdb-8714-4c7e-ab0f-208eff2bef3e&quot;\n  }\n}</component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Library.java\" root0=\"SKIP_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2vERqjzdVHT9ClhlzRrOwKdGEFm\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Application.HelloApplication.executor\": \"Run\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"git-widget-placeholder\": \"users\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"/Users/prestonbeachum/csc-331/CSC331FinalProject\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.0\",\n    \"project.structure.side.proportion\": \"0.2\",\n    \"settings.editor.selected.configurable\": \"Errors\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem\" />\n      <recent name=\"$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem\" />\n      <recent name=\"$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"e9081167-011d-4141-8f0f-7d8a1b0ee869\" name=\"Changes\" comment=\"\" />\n      <created>1744143781091</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1744143781091</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"library driver\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744743540754</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744743540754</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <ignored-roots>\n      <path value=\"$PROJECT_DIR$/LibraryManagementSystem\" />\n    </ignored-roots>\n    <MESSAGE value=\"library driver\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"library driver\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7b00fe0565e5dbd6132cbcf92135b93cc889fea6)
++++ b/.idea/workspace.xml	(date 1745364255280)
+@@ -5,8 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="e9081167-011d-4141-8f0f-7d8a1b0ee869" name="Changes" comment="library driver">
++      <change afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library/management/librarymanagementsystem/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/Inventory.csv" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/Book.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/EditBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/EditBook.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/HelloApplication.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/HelloViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/HelloViewController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/editController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/management/librarymanagementsystem/editController.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -56,10 +62,11 @@
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+     "Application.HelloApplication.executor": "Run",
++    "Application.Main.executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.git.unshallow": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "users",
++    "git-widget-placeholder": "library",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "/Users/prestonbeachum/csc-331/CSC331FinalProject",
+     "project.structure.last.edited": "Modules",
+@@ -74,6 +81,26 @@
+       <recent name="$PROJECT_DIR$/LibraryManagementSystem/src/main/resources/com/library/management/librarymanagementsystem" />
+       <recent name="$PROJECT_DIR$/LibraryManagementSystem/src/main/java/com/library" />
+     </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.library.management.librarymanagementsystem.Main" />
++      <module name="LibraryManagementSystem" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.library.management.librarymanagementsystem.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
