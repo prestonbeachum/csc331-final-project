@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -38,6 +39,9 @@ public class LoginScreenController{
     @FXML
     private TextField usernameField;
 
+    @FXML
+    private Label loginLabel;
+
     private static final String CSV_FILE_PATH = "src/main/resources/users.csv";
 
      /**
@@ -48,6 +52,7 @@ public class LoginScreenController{
     @FXML
     public void initialize() {
         try {
+            loginLabel.setVisible(false);
             createCsvIfNotExists();
             setupEventHandlers();
 
@@ -154,6 +159,7 @@ public class LoginScreenController{
                 }
             }
         }
+        loginLabel.setVisible(true);
     }
 
     /**
