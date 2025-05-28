@@ -1,4 +1,4 @@
-Library Management System
+# Library Management System
 A Java-based desktop application developed as the final project for CSC 331 at UNCW. This system facilitates efficient management of library operations, including user authentication, book inventory, and transaction tracking.
 
 Features
